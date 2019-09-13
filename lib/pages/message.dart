@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:hospital/provider/DataProvider.dart';
 import 'package:hospital/provider/ObjectUtil.dart';
+import 'package:hospital/widget/Ux.dart';
 
 class MessagePage extends StatefulWidget {
   const MessagePage({Key key}) : super(key: key);
@@ -21,7 +22,7 @@ class _MessagePageState extends State<MessagePage> {
 
   Future<DataProvider> getdata() async {
     var jsonData = await DefaultAssetBundle.of(context)
-        .loadString("assets/jsons/category.json");
+        .loadString("assets/jsons/message.json");
 
     var data = json.decode(jsonData.toString());
 
@@ -37,7 +38,7 @@ class _MessagePageState extends State<MessagePage> {
 
   @override
   Widget build(BuildContext context) {
-    return NestedScrollView(
+    var ui= NestedScrollView(
       headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
         return <Widget>[
           getTopSliver(innerBoxIsScrolled),
@@ -48,6 +49,19 @@ class _MessagePageState extends State<MessagePage> {
         builder: onDataReady,
       ),
     );
+
+
+    return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: onPress,
+        child: Icon(Icons.edit),
+      ),
+      body: ui,
+    );
+  }
+
+  onPress(){
+
   }
 
   Widget onDataReady(
@@ -77,7 +91,12 @@ class _MessagePageState extends State<MessagePage> {
     }
 
     var data = snapshot.data;
-    var list = data.get<MessageVO>("message");
+    var list = data.get("message");
+    if(list.length==0){
+      return new Center(
+            child: new Text("NONDATA"),
+          );
+    }
 
     return ListView.builder(
       padding: EdgeInsets.all(0),
@@ -93,19 +112,19 @@ class _MessagePageState extends State<MessagePage> {
         padding: EdgeInsets.all(0),
         color: Colors.red,
         height: h,
-        width: 375,
+        width: Ux.px(375),
         child: Image.asset(
           "assets/articles/woman3.jpg",
           fit: BoxFit.fitWidth,
         ));
 
     return SliverAppBar(
-      pinned: false,
+      pinned: true,
       floating: true,
-      //title: ,
+      title:Text("留言"),
       expandedHeight: h,
       flexibleSpace: FlexibleSpaceBar(
-        title: Container(),
+        //title: Container(),
         background: image,
       ),
     );

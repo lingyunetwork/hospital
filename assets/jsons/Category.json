@@ -97,29 +97,29 @@
     ],
     "swipers": [
         {
-            "name": "美妆1",
+            "name": "新闻资讯",
             "icon": "assets/images/homebanner.png",
             "url": "assets/articles/sex.jpg"
         },
         {
-            "name": "美妆1",
+            "name": "基因筛选",
             "icon": "assets/images/hotel-image-3.png",
-            "url": "assets/articles/sex.jpg"
+            "url": "assets/articles/jysx.jpg"
         },
         {
-            "name": "美妆1",
+            "name": "冷冻卵子",
             "icon": "assets/images/hotel-image-4.png",
-            "url": "assets/articles/sex.jpg"
+            "url": "assets/articles/dongluan.jpg"
         },
         {
-            "name": "美妆1",
+            "name": "代孕",
             "icon": "assets/images/hotel-image-5.png",
-            "url": "assets/articles/sex.jpg"
+            "url": "assets/articles/daiyun.jpg"
         },
         {
-            "name": "美妆1",
+            "name": "试管婴儿",
             "icon": "assets/images/hotel-image-6.png",
-            "url": "assets/articles/sex.jpg"
+            "url": "assets/articles/sgye.jpg"
         }
     ]
 }
