@@ -13,6 +13,8 @@
             "name": "种草"
         }
     ],
+
+
     "article": [
         {
             "name": "专家解读：冻卵一定需要去国外吗？国内不可以吗？",
@@ -36,13 +38,13 @@
             "name": "同性代孕流程（男）",
             "type": 1,
             "icon":"assets/images/hotel-image-5.png",
-            "url": "assets/articles/sgye.jpg"
+            "url": "assets/articles/sgye_01.jpg,assets/articles/sgye_02.jpg,assets/articles/sgye_03.jpg,assets/articles/sgye_04.jpg,assets/articles/sgye_05.jpg"
         },
         {
             "name": "同性代孕流程（女）",
             "type": 1,
             "icon":"assets/images/hotel-image.png",
-            "url": "assets/articles/sgye.jpg"
+            "url": "assets/articles/sgye_01.jpg,assets/articles/sgye_02.jpg,assets/articles/sgye_03.jpg,assets/articles/sgye_04.jpg,assets/articles/sgye_05.jpg"
         }
     ],
     "iconMenu": [
@@ -86,7 +88,7 @@
             "name": "试管婴儿",
             "icon": "assets/images/tube.png",
             "type": 1,
-            "url": "assets/articles/sgye.jpg"
+            "url": "assets/articles/sgye_01.jpg,assets/articles/sgye_02.jpg,assets/articles/sgye_03.jpg,assets/articles/sgye_04.jpg,assets/articles/sgye_05.jpg"
         },
         {
             "name": "性别选择",
@@ -119,7 +121,7 @@
         {
             "name": "试管婴儿",
             "icon": "assets/images/hotel-image-6.png",
-            "url": "assets/articles/sgye.jpg"
+            "url": "assets/articles/sgye_01.jpg,assets/articles/sgye_02.jpg,assets/articles/sgye_03.jpg,assets/articles/sgye_04.jpg,assets/articles/sgye_05.jpg"
         }
     ]
 }
