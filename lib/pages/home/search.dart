@@ -25,7 +25,7 @@ class _SearchBarState extends StateEvent<SearchBar> {
 
     city=result.cityName;
 
-    print(result.toString());
+    //print(result.toString());
 
     invalidate();
   }
