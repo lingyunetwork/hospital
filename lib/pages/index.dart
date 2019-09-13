@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'home.dart';
+import 'location.dart';
 
 class IndexPage extends StatefulWidget {
   const IndexPage({Key key}) : super(key: key);
@@ -19,7 +20,7 @@ class _IndexPageState extends State<IndexPage> with SingleTickerProviderStateMix
   void initState() {
     addTabItem('首页', Icons.home,HomePage());
     addTabItem('电话', Icons.phone);
-    addTabItem('地址', Icons.room);
+    addTabItem('地址', Icons.room,LocationPage());
     addTabItem('留言', Icons.sms);
     addTabItem('微信', Icons.account_box);
 
