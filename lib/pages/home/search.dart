@@ -1,4 +1,6 @@
+import 'package:city_pickers/city_pickers.dart';
 import 'package:flutter/material.dart';
+import 'package:hospital/widget/StateEvent.dart';
 import 'package:hospital/widget/Ux.dart';
 
 class SearchBar extends StatefulWidget {
@@ -7,20 +9,48 @@ class SearchBar extends StatefulWidget {
   _SearchBarState createState() => _SearchBarState();
 }
 
-class _SearchBarState extends State<SearchBar> {
+class _SearchBarState extends StateEvent<SearchBar> {
   TextEditingController _controller;
   String hint = "大家都在搜";
+  String city = "全国";
+
+  onCity(BuildContext context) async {
+    Result result = await CityPickers.showCitiesSelector(
+      context: context,
+    );
+
+    if(result==null){
+      return;
+    }
+
+    city=result.cityName;
+
+    print(result.toString());
+
+    invalidate();
+  }
 
   @override
   Widget build(BuildContext context) {
-    Widget ui = Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+    Widget address = Row(
       children: <Widget>[
         Icon(
           Icons.room,
           color: Colors.grey,
         ),
-        Text("全国"),
+        Text(city),
+      ],
+    );
+
+    address = InkWell(
+      onTap: () => onCity(context),
+      child: address,
+    );
+
+    Widget ui = Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        address,
         SizedBox(
           width: Ux.px(10),
         ),
@@ -40,7 +70,7 @@ class _SearchBarState extends State<SearchBar> {
     return Material(
       borderRadius: BorderRadius.circular(15.0),
       //elevation: 8,
-      color:Colors.grey[100],
+      color: Colors.grey[100],
 
       child: TextFormField(
         controller: _controller,
