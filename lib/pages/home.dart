@@ -27,17 +27,9 @@ class _HomePageState extends State<HomePage> {
     super.initState();
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return FutureBuilder(
-      future: future,
-      builder: onDataReady,
-    );
-  }
-
   Future<DataProvider> getdata() async {
     var jsonData = await DefaultAssetBundle.of(context)
-        .loadString("assets/jsons/Category.json");
+        .loadString("assets/jsons/category.json");
 
     var data = json.decode(jsonData.toString());
 
@@ -49,6 +41,14 @@ class _HomePageState extends State<HomePage> {
       provider.add(key, list);
     });
     return provider;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+      future: future,
+      builder: onDataReady,
+    );
   }
 
   Widget onDataReady(
@@ -95,7 +95,7 @@ class _HomePageState extends State<HomePage> {
       SearchBar(),
     ]);
 
-    var h=Ux.px(40);
+    var h = Ux.px(50);
     var header = SliverPersistentHeaderDelegateEx(headerUI);
     header.maxHeight = h;
     header.minHeight = h;

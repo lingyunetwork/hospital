@@ -1,0 +1,46 @@
+{
+    "message":[
+        {
+            "name":"crl",
+            "icon":"assets/articles/woman3.jpg",
+            "time":"2019 AUG",
+            "content":"在开发过程中,屏幕适配是很重要的一件事.再RN中我们可以获取屏幕的像素,按照特定机型来适配屏幕大小.还要自己手写类..."
+        },
+        {
+            "name":"crl",
+            "icon":"assets/articles/man1.jpg",
+            "time":"2019 AUG",
+            "content":"It work, but I find the first line also has space on the top, and flutter now has the property the same to \"android:includeFontPadding\" – andrew Mar 18 at 7:09"
+        },
+        {
+            "name":"crl",
+            "icon":"assets/articles/woman3.jpg",
+            "time":"2019 AUG",
+            "content":"A single fixed-height row that typically contains some text as well as a leading or trailing icon.A list tile contains one to three lines of text optionally flanked by icons or other widgets, such as check boxes. The icons (or other widgets) for the tile are defined with the leading and trailing parameters. The first line of text is not optional and is specified with title. The value of subtitle, which is optional, will occupy the space allocated for an additional line of text, or two lines if isThreeLine is true. If dense is true then the overall height of this tile and the size of the DefaultTextStyles that wrap the title and subtitle widget are reduced."
+        },
+        {
+            "name":"crl",
+            "icon":"assets/articles/man1.jpg",
+            "time":"2019 AUG",
+            "content":"JSON不允许断行以提高可读性,最好的办法是使用一个可以为你换行的IDE。"
+        },
+        {
+            "name":"crl",
+            "icon":"assets/articles/woman3.jpg",
+            "time":"2019 AUG",
+            "content":"在开发过程中,屏幕适配是很重要的一件事.再RN中我们可以获取屏幕的像素,按照特定机型来适配屏幕大小.还要自己手写类..."
+        },
+        {
+            "name":"crl",
+            "icon":"assets/articles/man1.jpg",
+            "time":"2019 AUG",
+            "content":"在开发过程中,屏幕适配是很重要的一件事.再RN中我们可以获取屏幕的像素,按照特定机型来适配屏幕大小.还要自己手写类..."
+        },
+        {
+            "name":"crl",
+            "icon":"assets/articles/woman3.jpg",
+            "time":"2019 AUG",
+            "content":"在开发过程中,屏幕适配是很重要的一件事.再RN中我们可以获取屏幕的像素,按照特定机型来适配屏幕大小.还要自己手写类..."
+        }
+    ]
+}

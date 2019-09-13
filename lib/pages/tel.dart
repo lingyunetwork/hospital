@@ -17,7 +17,7 @@ class TelPage extends StatelessWidget {
     Widget phone = ListTile(
       contentPadding: EdgeInsets.fromLTRB(10,0,10,0),
       title: Text(
-        "15000681615",
+        "15000xx1615",
         style: TextStyle(fontSize: 18),
       ),
       subtitle: Text("电话号码"),

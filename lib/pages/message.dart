@@ -1,27 +1,89 @@
-import 'package:flutter/material.dart';
-import 'package:hospital/delegate/ext.dart';
+import 'dart:convert';
 
-class MessagePage extends StatelessWidget {
+import 'package:flutter/material.dart';
+import 'package:hospital/provider/DataProvider.dart';
+import 'package:hospital/provider/ObjectUtil.dart';
+
+class MessagePage extends StatefulWidget {
   const MessagePage({Key key}) : super(key: key);
 
   @override
+  _MessagePageState createState() => _MessagePageState();
+}
+
+class _MessagePageState extends State<MessagePage> {
+  Future<DataProvider> future;
+  @override
+  void initState() {
+    future = getdata();
+    super.initState();
+  }
+
+  Future<DataProvider> getdata() async {
+    var jsonData = await DefaultAssetBundle.of(context)
+        .loadString("assets/jsons/category.json");
+
+    var data = json.decode(jsonData.toString());
+
+    var create = MessageVO();
+    var provider = DataProvider();
+
+    data.forEach((key, value) {
+      var list = Factory.fromJson(value, create);
+      provider.add(key, list);
+    });
+    return provider;
+  }
+
+  @override
   Widget build(BuildContext context) {
-    Widget ui;
-
-    ui = ListView.builder(
-      padding: EdgeInsets.all(0),
-      shrinkWrap: true,
-      itemBuilder: itemBuilder,
-      itemCount: 5,
-    );
-
     return NestedScrollView(
       headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
         return <Widget>[
           getTopSliver(innerBoxIsScrolled),
         ];
       },
-      body: ui,
+      body: FutureBuilder(
+        future: future,
+        builder: onDataReady,
+      ),
+    );
+  }
+
+  Widget onDataReady(
+      BuildContext context, AsyncSnapshot<DataProvider> snapshot) {
+    switch (snapshot.connectionState) {
+      case ConnectionState.active:
+      case ConnectionState.waiting:
+        return new Center(
+          child: new CircularProgressIndicator(),
+        );
+        break;
+      case ConnectionState.done:
+        if (snapshot.hasError) {
+          return new Center(
+            child: new Text("ERROR"),
+          );
+        }
+
+        if (snapshot.hasData == false) {
+          return new Center(
+            child: new Text("NONDATA"),
+          );
+        }
+        break;
+      case ConnectionState.none:
+        break;
+    }
+
+    var data = snapshot.data;
+    var list = data.get<MessageVO>("message");
+
+    return ListView.builder(
+      padding: EdgeInsets.all(0),
+      shrinkWrap: true,
+      itemBuilder: (ctx, index) => itemBuilder(ctx, list[index]),
+      itemCount: list.length,
     );
   }
 
@@ -38,7 +100,6 @@ class MessagePage extends StatelessWidget {
         ));
 
     return SliverAppBar(
- 
       pinned: false,
       floating: true,
       //title: ,
@@ -50,8 +111,8 @@ class MessagePage extends StatelessWidget {
     );
   }
 
-  Widget itemBuilder(BuildContext ctx, int index) {
-    var url = "assets/articles/woman3.jpg";
+  Widget itemBuilder(BuildContext ctx, MessageVO vo) {
+    var url = vo.icon;
 
     var icon = Container(
       height: 50.0,
@@ -75,7 +136,7 @@ class MessagePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
-              "crl",
+              vo.name,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
               ),
@@ -84,7 +145,7 @@ class MessagePage extends StatelessWidget {
               height: 5,
             ),
             Text(
-              "2019 Aug",
+              vo.time,
               style: TextStyle(
                 color: Colors.grey.withOpacity(0.6),
               ),
@@ -103,8 +164,9 @@ class MessagePage extends StatelessWidget {
         ),
         Container(
           child: Text(
-            "在开发过程中,屏幕适配是很重要的一件事.再RN中我们可以获取屏幕的像素,按照特定机型来适配屏幕大小.还要自己手写类...",
+            vo.content,
             softWrap: true,
+            //style: TextStyle(height: 1.5,letterSpacing: 0.2),
           ),
         ),
       ],
@@ -116,5 +178,22 @@ class MessagePage extends StatelessWidget {
         child: ui,
       ),
     );
+  }
+}
+
+class MessageVO extends IFromJSON {
+  String name;
+  String icon;
+  String time;
+  String content;
+  @override
+  newFromJSON(Map json) {
+    var vo = MessageVO();
+    vo.name = json["name"];
+    vo.icon = json["icon"];
+
+    vo.time = json["time"];
+    vo.content = json["content"];
+    return vo;
   }
 }

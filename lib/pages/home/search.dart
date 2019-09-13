@@ -29,11 +29,8 @@ class _SearchBarState extends State<SearchBar> {
     );
 
     ui = Container(
-      padding: EdgeInsets.only(left: 10, right: 10),
-      height: Ux.px(30),
-      child: ui,
-    );
-    ui = SafeArea(
+      padding: EdgeInsets.all(10),
+      height: Ux.px(50),
       child: ui,
     );
     return ui;

@@ -5,17 +5,33 @@ class WePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   return Scaffold(
-     
+    Widget ui = Container(
+      height: 300,
+      width: double.infinity,
+      child: Image.asset(
+        "assets/articles/woman3.jpg",
+        fit: BoxFit.cover,
+      ),
+    );
+
+    Widget qr = Container(
+      height: 300,
+      width: double.infinity,
+      child: Center(
+        child: Image.asset(
+        "assets/articles/qr.jpg",
+        fit: BoxFit.cover,
+      )),
+    );
+
+    ui=Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: <Widget>[ui,qr],);
+
+    return Scaffold(
       body: SingleChildScrollView(
-        child: Container(
-          height: 300,
-          width: double.infinity,
-          child: Image.asset(
-            "assets/articles/woman3.jpg",
-            fit: BoxFit.cover,
-          ),
-        ),
+        child: ui,
       ),
     );
   }

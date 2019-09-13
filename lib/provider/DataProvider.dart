@@ -10,7 +10,7 @@ class DataProvider {
     return true;
   }
 
-  get<T>(String key) {
+  List<T> get<T>(String key) {
     var value = map[key];
     return value;
   }
