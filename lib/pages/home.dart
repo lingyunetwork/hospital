@@ -7,6 +7,7 @@ import 'package:hospital/provider/DataProvider.dart';
 import 'package:hospital/provider/MenuVO.dart';
 import 'package:hospital/provider/ObjectUtil.dart';
 
+import 'home/CartList.dart';
 import 'home/SwiperAd.dart';
 import 'home/SwiperCategory.dart';
 
@@ -51,24 +52,28 @@ class _HomePageState extends State<HomePage> {
 
   Widget onDataReady(
       BuildContext context, AsyncSnapshot<DataProvider> snapshot) {
-    if (snapshot.connectionState == ConnectionState.active ||
-        snapshot.connectionState == ConnectionState.waiting) {
-      return new Center(
-        child: new CircularProgressIndicator(),
-      );
-    }
-    if (snapshot.connectionState == ConnectionState.done) {
-      if (snapshot.hasError) {
+    switch (snapshot.connectionState) {
+      case ConnectionState.active:
+      case ConnectionState.waiting:
         return new Center(
-          child: new Text("ERROR"),
+          child: new CircularProgressIndicator(),
         );
-      }
+        break;
+      case ConnectionState.done:
+        if (snapshot.hasError) {
+          return new Center(
+            child: new Text("ERROR"),
+          );
+        }
 
-      if (snapshot.hasData == false) {
-        return new Center(
-          child: new Text("NONDATA"),
-        );
-      }
+        if (snapshot.hasData == false) {
+          return new Center(
+            child: new Text("NONDATA"),
+          );
+        }
+        break;
+      case ConnectionState.none:
+        break;
     }
 
     var data = snapshot.data;
@@ -76,16 +81,10 @@ class _HomePageState extends State<HomePage> {
       headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
         return <Widget>[
           getTopSliver(),
+          getSwiperSlive(data),
         ];
       },
-      body: ListView(
-        children: <Widget>[
-          SwiperAd(data),
-          SwiperCategory(
-            data,
-          ),
-        ],
-      ),
+      body: CartList(data),
     );
     return Container(color: Colors.white, child: SafeArea(child: ui));
   }
@@ -101,6 +100,21 @@ class _HomePageState extends State<HomePage> {
     return SliverPersistentHeader(
       pinned: true,
       delegate: header,
+    );
+  }
+
+  Widget getSwiperSlive(DataProvider value) {
+    Widget ui = Column(
+      children: <Widget>[
+        SwiperAd(value),
+        SwiperCategory(
+          value,
+        ),
+      ],
+    );
+
+    return SliverToBoxAdapter(
+      child: ui,
     );
   }
 }

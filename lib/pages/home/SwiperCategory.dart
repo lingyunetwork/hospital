@@ -70,7 +70,7 @@ class _SwiperCategoryState extends StateEvent<SwiperCategory>{
             value.name,
             style: TextStyle(
                 fontSize: 14,
-                color: Colors.grey,
+                color: Colors.black54,
                 fontWeight: FontWeight.normal),
                 softWrap:false,
           ),

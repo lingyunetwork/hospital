@@ -43,7 +43,7 @@ class _SearchBarState extends State<SearchBar> {
     return Material(
       borderRadius: BorderRadius.circular(15.0),
       //elevation: 8,
-      color: Colors.grey[200],
+      color:Colors.grey[100],
 
       child: TextFormField(
         controller: _controller,
@@ -53,6 +53,7 @@ class _SearchBarState extends State<SearchBar> {
           contentPadding: EdgeInsets.only(top: 10),
           prefixIcon: Icon(Icons.search, color: Colors.grey, size: 20),
           hintText: hint,
+          hintStyle: TextStyle(color: Colors.grey[500]),
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10.0),
               borderSide: BorderSide.none),

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -30,16 +29,25 @@ abstract class StateEvent<T extends StatefulWidget> extends State<T> {
     ));
   }
 
-   navigate(BuildContext context, dynamic value) async {
+  navigate(BuildContext context, dynamic value) async {
     if (value.url != null) {
       launch(value.url);
     }
   }
 
-  navRepNamed(String uri) {
+  navRepNamed(String uri, [dynamic data]) {
+    if (data != null) {
+      Navigator.of(context).pushReplacementNamed(uri, arguments: data);
+      return;
+    }
     Navigator.of(context).pushReplacementNamed(uri);
   }
-  navNamed(String uri) {
+
+  navNamed(String uri, [dynamic data]) {
+    if (data != null) {
+      Navigator.of(context).pushNamed(uri, arguments: data);
+      return;
+    }
     Navigator.of(context).pushNamed(uri);
   }
 }
