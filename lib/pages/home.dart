@@ -6,6 +6,7 @@ import 'package:hospital/pages/home/search.dart';
 import 'package:hospital/provider/DataProvider.dart';
 import 'package:hospital/provider/MenuVO.dart';
 import 'package:hospital/provider/ObjectUtil.dart';
+import 'package:hospital/widget/Ux.dart';
 
 import 'home/CartList.dart';
 import 'home/SwiperAd.dart';
@@ -93,9 +94,11 @@ class _HomePageState extends State<HomePage> {
     Widget headerUI = Column(children: <Widget>[
       SearchBar(),
     ]);
+
+    var h=Ux.px(40);
     var header = SliverPersistentHeaderDelegateEx(headerUI);
-    header.maxHeight = 40;
-    header.minHeight = 40;
+    header.maxHeight = h;
+    header.minHeight = h;
 
     return SliverPersistentHeader(
       pinned: true,

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:hospital/pages/tel.dart';
+import 'package:hospital/pages/we.dart';
 
 import 'home.dart';
 import 'location.dart';
+import 'message.dart';
 
 class IndexPage extends StatefulWidget {
   const IndexPage({Key key}) : super(key: key);
@@ -21,10 +24,10 @@ class _IndexPageState extends State<IndexPage> with SingleTickerProviderStateMix
     print("index init");
     
     addTabItem('首页', Icons.home,HomePage());
-    addTabItem('电话', Icons.phone);
+    addTabItem('电话', Icons.phone,TelPage());
     addTabItem('地址', Icons.room,LocationPage());
-    addTabItem('留言', Icons.sms);
-    addTabItem('微信', Icons.account_box);
+    addTabItem('留言', Icons.sms,MessagePage());
+    addTabItem('微信', Icons.account_box,WePage());
 
     _tabController = TabController(length: _bars.length, vsync: this);
 

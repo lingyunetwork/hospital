@@ -37,14 +37,16 @@ class _CartListState extends StateEvent<CartList> {
     Widget ui;
 
     if (url.indexOf("assets") == 0) {
-      ui = Image.asset(url);
+      ui = Image.asset(url,fit: BoxFit.cover,);
+      ui=Container(width: Ux.px(335),child: ui,);
     } else {
       ui = CachedNetworkImage(
+          width: Ux.px(335),
           placeholder: (context, url) =>
               Center(child: CircularProgressIndicator()),
           errorWidget: (context, url, error) => new Icon(Icons.error),
           imageUrl: url,
-          fit: BoxFit.fitWidth);
+          fit: BoxFit.cover);
     }
 
     ui = Stack(

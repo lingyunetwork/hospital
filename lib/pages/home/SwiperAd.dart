@@ -46,7 +46,7 @@ class _SwiperAdState extends StateEvent<SwiperAd> {
 
     Widget ui;
     if (url.indexOf("assets") == 0) {
-      ui = Image.asset(url);
+      ui = Image.asset(url,fit: BoxFit.cover,);
     } else {
       ui = CachedNetworkImage(
           placeholder: (context, url) =>

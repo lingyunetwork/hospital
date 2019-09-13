@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hospital/widget/Ux.dart';
 
 class SearchBar extends StatefulWidget {
   SearchBar({Key key}) : super(key: key);
@@ -21,16 +22,15 @@ class _SearchBarState extends State<SearchBar> {
         ),
         Text("全国"),
         SizedBox(
-          width: 20,
+          width: Ux.px(10),
         ),
         Expanded(child: getInput()),
       ],
     );
 
     ui = Container(
-      //color: Colors.red,
       padding: EdgeInsets.only(left: 10, right: 10),
-      height: 30,
+      height: Ux.px(30),
       child: ui,
     );
     ui = SafeArea(
