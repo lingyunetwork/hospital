@@ -1,4 +1,3 @@
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
@@ -16,7 +15,7 @@ class SwiperAd extends StatefulWidget {
   _SwiperAdState createState() => _SwiperAdState();
 }
 
-class _SwiperAdState extends StateEvent<SwiperAd>{
+class _SwiperAdState extends StateEvent<SwiperAd> {
   List<MenuVO> data;
 
   @override
@@ -32,8 +31,7 @@ class _SwiperAdState extends StateEvent<SwiperAd>{
       itemBuilder: _itemBuilder,
       itemCount: data.length,
       pagination: new SwiperPagination(
-          margin: const EdgeInsets.all(3.0),
-          builder: DotSwiper()),
+          margin: const EdgeInsets.all(3.0), builder: DotSwiper()),
       scale: 1.0,
       autoplay: true,
     );
@@ -58,10 +56,18 @@ class _SwiperAdState extends StateEvent<SwiperAd>{
           fit: BoxFit.fitWidth);
     }
     return InkWell(
-      onTap: () {
-        navigate(context, vo);
-      },
+      onTap: () => _onItemTap(vo),
       child: ui,
     );
+  }
+
+  _onItemTap(MenuVO vo) {
+    if (vo.url == "") {
+      toast("开发中...");
+      return;
+    }
+    cleanToast();
+
+    navNamed("/article", vo);
   }
 }

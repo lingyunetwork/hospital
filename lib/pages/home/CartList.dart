@@ -91,13 +91,17 @@ class _CartListState extends StateEvent<CartList> {
     );
 
     ui = InkWell(
-      onTap: ()=>_onItemTap(vo),
+      onTap: () => _onItemTap(vo),
       child: ui,
     );
     return ui;
   }
 
   _onItemTap(MenuVO vo) {
-    navNamed("/article",vo);
+    if (vo.url == "") {
+      toast("开发中...");
+      return;
+    }
+    navNamed("/article", vo);
   }
 }

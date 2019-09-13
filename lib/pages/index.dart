@@ -18,6 +18,8 @@ class _IndexPageState extends State<IndexPage> with SingleTickerProviderStateMix
 
   @override
   void initState() {
+    print("index init");
+    
     addTabItem('首页', Icons.home,HomePage());
     addTabItem('电话', Icons.phone);
     addTabItem('地址', Icons.room,LocationPage());

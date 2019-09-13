@@ -19,11 +19,21 @@ abstract class StateEvent<T extends StatefulWidget> extends State<T> {
   //不做任何事
   _empty() {}
 
+
+  cleanToast() {
+    var c = innerContext;
+    if (c == null) {
+      c = context;
+    }
+    Scaffold.of(c).removeCurrentSnackBar();
+  }
+
   toast(String value) {
     var c = innerContext;
     if (c == null) {
       c = context;
     }
+    Scaffold.of(c).removeCurrentSnackBar();
     Scaffold.of(c).showSnackBar(SnackBar(
       content: Text('$value'),
     ));

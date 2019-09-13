@@ -68,58 +68,58 @@
             "name": "妊娠代孕",
             "icon": "assets/images/surrogacy.png",
             "type": 1,
-            "url": ""
+            "url": "assets/articles/代孕.jpg"
         },
         {
             "name": "冷冻卵子",
             "icon": "assets/images/freezing-eggs-2.png",
             "type": 1,
-            "url": ""
+            "url": "assets/articles/冻卵.jpg"
         },
         {
             "name": "基因筛选",
             "icon": "assets/images/freezing-eggs.png",
             "type": 1,
-            "url": ""
+            "url": "assets/articles/基因筛选.jpg"
         },
         {
             "name": "试管婴儿",
             "icon": "assets/images/tube.png",
             "type": 1,
-            "url": ""
+            "url": "assets/articles/试管婴儿.jpg"
         },
         {
             "name": "性别选择",
             "icon": "assets/images/gender-selection.png",
             "type": 1,
-            "url": ""
+            "url": "assets/articles/合法性别.jpg"
         }
     ],
     "swipers": [
         {
             "name": "美妆1",
             "icon": "assets/images/homebanner.png",
-            "url": ""
+            "url": "assets/articles/合法性别.jpg"
         },
         {
             "name": "美妆1",
             "icon": "assets/images/homebanner.png",
-            "url": ""
+            "url": "assets/articles/合法性别.jpg"
         },
         {
             "name": "美妆1",
             "icon": "assets/images/homebanner.png",
-            "url": ""
+            "url": "assets/articles/合法性别.jpg"
         },
         {
             "name": "美妆1",
             "icon": "assets/images/homebanner.png",
-            "url": ""
+            "url": "assets/articles/合法性别.jpg"
         },
         {
             "name": "美妆1",
             "icon": "assets/images/homebanner.png",
-            "url": ""
+            "url": "assets/articles/合法性别.jpg"
         }
     ]
 }

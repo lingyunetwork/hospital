@@ -7,7 +7,7 @@ class ArticlePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cancelBtn = Positioned(
+    /*final cancelBtn = Positioned(
       top: 50.0,
       left: 20.0,
       child: Container(
@@ -23,7 +23,7 @@ class ArticlePage extends StatelessWidget {
           iconSize: 20.0,
         ),
       ),
-    );
+    );*/
 
     Widget ui = Image.asset(
       vo.url,
