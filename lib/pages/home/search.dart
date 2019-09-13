@@ -60,7 +60,7 @@ class _SearchBarState extends StateEvent<SearchBar> {
 
     ui = Container(
       padding: EdgeInsets.all(10),
-      height: Ux.px(50),
+      height: Ux.px(60),
       child: ui,
     );
     return ui;
@@ -68,13 +68,14 @@ class _SearchBarState extends StateEvent<SearchBar> {
 
   Widget getInput() {
     return Material(
-      borderRadius: BorderRadius.circular(15.0),
+      borderRadius: BorderRadius.circular(30.0),
       //elevation: 8,
       color: Colors.grey[100],
 
       child: TextFormField(
         controller: _controller,
         keyboardType: TextInputType.text,
+        textInputAction: TextInputAction.search,
         textAlignVertical: TextAlignVertical.center,
         decoration: InputDecoration(
           contentPadding: EdgeInsets.only(top: 10),

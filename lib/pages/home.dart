@@ -95,7 +95,7 @@ class _HomePageState extends State<HomePage> {
       SearchBar(),
     ]);
 
-    var h = Ux.px(50);
+    var h = Ux.px(60);
     var header = SliverPersistentHeaderDelegateEx(headerUI);
     header.maxHeight = h;
     header.minHeight = h;
