@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:hospital/provider/DataProvider.dart';
 import 'package:hospital/provider/ObjectUtil.dart';
 import 'package:hospital/widget/Ux.dart';
+import 'package:multi_image_picker/multi_image_picker.dart';
 
 class MessagePage extends StatefulWidget {
   const MessagePage({Key key}) : super(key: key);
@@ -38,7 +39,7 @@ class _MessagePageState extends State<MessagePage> {
 
   @override
   Widget build(BuildContext context) {
-    var ui= NestedScrollView(
+    var ui = NestedScrollView(
       headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
         return <Widget>[
           getTopSliver(innerBoxIsScrolled),
@@ -50,7 +51,6 @@ class _MessagePageState extends State<MessagePage> {
       ),
     );
 
-
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: onPress,
@@ -60,8 +60,20 @@ class _MessagePageState extends State<MessagePage> {
     );
   }
 
-  onPress(){
+  onPress() {
+    loadAssets();
+  }
 
+  Future<void> loadAssets() async {
+    List<Asset> resultList;
+
+    try {
+      resultList = await MultiImagePicker.pickImages(
+        maxImages: 30,
+      );
+    } catch (e) {}
+
+    print(resultList);
   }
 
   Widget onDataReady(
@@ -92,10 +104,10 @@ class _MessagePageState extends State<MessagePage> {
 
     var data = snapshot.data;
     var list = data.get("message");
-    if(list.length==0){
+    if (list.length == 0) {
       return new Center(
-            child: new Text("NONDATA"),
-          );
+        child: new Text("NONDATA"),
+      );
     }
 
     return ListView.builder(
@@ -121,7 +133,7 @@ class _MessagePageState extends State<MessagePage> {
     return SliverAppBar(
       pinned: true,
       floating: true,
-      title:Text("留言"),
+      title: Text("留言"),
       expandedHeight: h,
       flexibleSpace: FlexibleSpaceBar(
         //title: Container(),

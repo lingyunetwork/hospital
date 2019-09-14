@@ -43,5 +43,9 @@
 	<false/>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>定位用来干什么,需要描述清楚</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>Example usage description</string>
+    <key>NSCameraUsageDescription</key>
+    <string>Example usage description</string>
 </dict>
 </plist>
