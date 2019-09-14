@@ -1,11 +1,10 @@
-
 import 'package:flutter/material.dart';
 
 class SliverPersistentHeaderDelegateEx extends SliverPersistentHeaderDelegate {
   final Widget _ui;
 
-   double maxHeight;
-   double minHeight;
+  double maxHeight;
+  double minHeight;
 
   SliverPersistentHeaderDelegateEx(this._ui);
   @override

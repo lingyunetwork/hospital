@@ -37,7 +37,7 @@ class _SwiperAdState extends StateEvent<SwiperAd> {
     );
 
     return Container(
-        color: Colors.grey, width: Ux.px(375), height: Ux.px(180), child: ui);
+        color: Colors.grey, width: Ux.px(375), height: Ux.px(200), child: ui);
   }
 
   Widget _itemBuilder(BuildContext context, int index) {
