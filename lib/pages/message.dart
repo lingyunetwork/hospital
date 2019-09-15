@@ -69,7 +69,8 @@ class _MessagePageState extends State<MessagePage> {
 
     try {
       resultList = await MultiImagePicker.pickImages(
-        maxImages: 30,
+        maxImages: 5,
+        enableCamera: true
       );
     } catch (e) {}
 
